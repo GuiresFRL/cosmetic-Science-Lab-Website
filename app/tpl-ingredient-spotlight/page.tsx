@@ -1,6 +1,7 @@
+import type { Metadata } from 'next';
 import Content from './content';
 
-export const metadata = { title: "Template: Ingredient Spotlight article · Cosmetic Science Lab" };
+export const metadata: Metadata = { "title": "Template: Ingredient Spotlight article · Cosmetic Science Lab", "description": "Article template for the Ingredient Spotlight category of Cosmetic Science Lab Insights: structure, media slots and writer notes.", "keywords": "Template, Ingredient Spotlight article, cosmetic product development, Cosmetic Science Lab", "authors": [{ "name": "Cosmetic Science Lab" }], "robots": "noindex, follow", "alternates": { "canonical": "https://www.cosmeticsciencelab.com/tpl-ingredient-spotlight", "languages": { "en": "https://www.cosmeticsciencelab.com/tpl-ingredient-spotlight", "x-default": "https://www.cosmeticsciencelab.com/tpl-ingredient-spotlight" } }, "openGraph": { "type": "website", "siteName": "Cosmetic Science Lab", "title": "Template: Ingredient Spotlight article · Cosmetic Science Lab", "description": "Article template for the Ingredient Spotlight category of Cosmetic Science Lab Insights: structure, media slots and writer notes.", "url": "https://www.cosmeticsciencelab.com/tpl-ingredient-spotlight", "locale": "en_GB", "images": [{ "url": "https://www.cosmeticsciencelab.com/images/og-image.png", "width": 1200, "height": 630 }] }, "twitter": { "card": "summary_large_image", "title": "Template: Ingredient Spotlight article · Cosmetic Science Lab", "description": "Article template for the Ingredient Spotlight category of Cosmetic Science Lab Insights: structure, media slots and writer notes.", "images": ["https://www.cosmeticsciencelab.com/images/og-image.png"] } };
 
 export default function Page() {
   return <Content />;

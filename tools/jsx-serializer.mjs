@@ -46,6 +46,8 @@ const ATTR_RENAME = {
   'inputmode': 'inputMode',
   'enterkeyhint': 'enterKeyHint',
   'datetime': 'dateTime',
+  'referrerpolicy': 'referrerPolicy',
+  'fetchpriority': 'fetchPriority',
   // SVG presentation attributes (kebab-case in source -> camelCase in JSX)
   'stroke-width': 'strokeWidth',
   'stroke-linecap': 'strokeLinecap',
