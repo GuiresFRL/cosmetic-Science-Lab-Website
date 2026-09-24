@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -32,6 +33,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Nav />
         {children}
         <Footer />
+        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+          <Script src="https://www.google.com/recaptcha/api.js?render=explicit" strategy="afterInteractive" />
+        )}
         <SiteScripts />
       </body>
     </html>

@@ -188,23 +188,59 @@ function serializeNode(node, ctx) {
   return '';
 }
 
+function optionTextContent(node) {
+  return (node.children || []).map((ch) => (ch.type === 'text' ? ch.data : '')).join('');
+}
+
+// React warns on <option selected> (uncontrolled <select> children); it wants
+// defaultValue on the <select> itself instead. Same DOM result, no warning.
+function hoistSelectDefaultValue(node) {
+  const attribs = node.attribs || {};
+  if ('multiple' in attribs) return { childrenNodes: node.children || [], defaultValue: undefined };
+  const childrenNodes = node.children || [];
+  let selectedNode;
+  for (const c of childrenNodes) {
+    if (c.type === 'tag' && (c.tagName || c.name || '').toLowerCase() === 'option' && c.attribs && 'selected' in c.attribs) {
+      selectedNode = c;
+    }
+  }
+  if (!selectedNode) return { childrenNodes, defaultValue: undefined };
+  const defaultValue = selectedNode.attribs.value !== undefined ? selectedNode.attribs.value : optionTextContent(selectedNode);
+  const patched = childrenNodes.map((c) => {
+    if (c !== selectedNode) return c;
+    const clone = { ...c, attribs: { ...c.attribs } };
+    delete clone.attribs.selected;
+    return clone;
+  });
+  return { childrenNodes: patched, defaultValue };
+}
+
 function serializeTag(node, ctx) {
   const tag = node.tagName || node.name;
   const { attrs, hasEventHandler, needsCssVarCast } = serializeAttrs(node);
   if (hasEventHandler) ctx.needsClient = true;
   if (needsCssVarCast) ctx.needsCssVarCast = true;
 
-  const childrenNodes = node.children || [];
+  let childrenNodes = node.children || [];
+  let finalAttrs = attrs;
+  if (tag.toLowerCase() === 'select') {
+    const hoisted = hoistSelectDefaultValue(node);
+    childrenNodes = hoisted.childrenNodes;
+    if (hoisted.defaultValue !== undefined) {
+      finalAttrs += ` defaultValue={${JSON.stringify(hoisted.defaultValue)}}`;
+    }
+  }
+
   const childrenJsx = childrenNodes.map((c) => serializeNode(c, ctx)).join('');
   const isVoid = VOID_ELEMENTS.has(tag.toLowerCase());
 
   if (isVoid) {
-    return `<${tag}${attrs} />`;
+    return `<${tag}${finalAttrs} />`;
   }
   if (childrenJsx.trim() === '') {
-    return `<${tag}${attrs} />`;
+    return `<${tag}${finalAttrs} />`;
   }
-  return `<${tag}${attrs}>${childrenJsx}</${tag}>`;
+  return `<${tag}${finalAttrs}>${childrenJsx}</${tag}>`;
 }
 
 // Converts an array of cheerio/htmlparser2 child nodes (a fragment) to a JSX

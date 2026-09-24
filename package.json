@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "next": "16.3.6",
+    "nodemailer": "^10.0.10",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cheerio": "^1.2.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "typescript": "^5"

@@ -172,6 +172,52 @@ export default function SiteScripts() {
       typeof window.matchMedia === 'function' &&
       matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // ---- reCAPTCHA (contact/enquiry/newsletter forms) ----
+    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (RECAPTCHA_SITE_KEY) {
+      document
+        .querySelectorAll<HTMLFormElement>('#enquiry, .multi-form, .news-form')
+        .forEach((form) => {
+          const existing = form.querySelector<HTMLElement>('.g-recaptcha');
+          if (existing) existing.remove();
+          const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+          if (!submitBtn?.parentElement) return;
+          const container = document.createElement('div');
+          container.className = 'g-recaptcha';
+          container.style.margin = '4px 0 14px';
+          submitBtn.parentElement.insertBefore(container, submitBtn);
+
+          let cancelled = false;
+          const tryRender = () => {
+            if (cancelled || !container.isConnected) return;
+            const g = (window as any).grecaptcha;
+            if (g && typeof g.render === 'function') {
+              try {
+                const widgetId = g.render(container, { sitekey: RECAPTCHA_SITE_KEY });
+                (form as any)._recaptchaWidgetId = widgetId;
+              } catch {
+                setTimeout(tryRender, 250);
+              }
+            } else {
+              setTimeout(tryRender, 250);
+            }
+          };
+          tryRender();
+          cleanups.push(() => {
+            cancelled = true;
+            container.remove();
+          });
+        });
+    }
+    const recaptchaTokenFor = (form: HTMLFormElement): string | null => {
+      if (!RECAPTCHA_SITE_KEY) return '';
+      const widgetId = (form as any)._recaptchaWidgetId;
+      const g = (window as any).grecaptcha;
+      if (widgetId === undefined || !g || typeof g.getResponse !== 'function') return '';
+      const token = g.getResponse(widgetId);
+      return token ? token : null;
+    };
+
     // ---- Generative duotone "micrographs" ----
     function rng(seed: number) {
       return function () {
@@ -334,22 +380,20 @@ export default function SiteScripts() {
             (bad as HTMLInputElement).focus();
             return;
           }
-          const endpoint = enquiry.dataset.endpoint;
-          if (endpoint) {
-            enquiryOk.textContent = 'Sending…';
-            fetch(endpoint, { method: 'POST', body: new FormData(enquiry) })
-              .then((r) => {
-                if (!r.ok) throw 0;
-                location.href = '/thank-you';
-              })
-              .catch(() => {
-                enquiryOk.textContent = 'Your enquiry could not be sent. Please try again, or message us on WhatsApp.';
-              });
+          if (recaptchaTokenFor(enquiry) === null) {
+            enquiryOk.textContent = 'Please confirm the reCAPTCHA checkbox.';
             return;
           }
-          const first = (enquiry.querySelector<HTMLInputElement>('#f-first') || { value: '' }).value.trim();
-          enquiryOk.textContent =
-            'Thanks' + (first ? ', ' + first : '') + '. This is a design preview. On the live site your enquiry goes straight to the product team.';
+          const endpoint = enquiry.dataset.endpoint || '/api/contact';
+          enquiryOk.textContent = 'Sending…';
+          fetch(endpoint, { method: 'POST', body: new FormData(enquiry) })
+            .then((r) => {
+              if (!r.ok) throw 0;
+              location.href = '/thank-you';
+            })
+            .catch(() => {
+              enquiryOk.textContent = 'Your enquiry could not be sent. Please try again, or message us on WhatsApp.';
+            });
         },
         { signal }
       );
@@ -405,17 +449,17 @@ export default function SiteScripts() {
             return;
           }
           em.classList.remove('invalid');
-          if (nf.dataset.endpoint) {
-            fetch(nf.dataset.endpoint, { method: 'POST', body: new FormData(nf) })
-              .then(() => {
-                msg.textContent = 'Subscribed. Check your inbox to confirm.';
-              })
-              .catch(() => {
-                msg.textContent = 'Could not subscribe. Please try again.';
-              });
+          if (recaptchaTokenFor(nf) === null) {
+            msg.textContent = 'Please confirm the reCAPTCHA checkbox.';
             return;
           }
-          msg.textContent = 'Thanks. This is a design preview; on the live site you will be subscribed.';
+          fetch(nf.dataset.endpoint || '/api/contact', { method: 'POST', body: new FormData(nf) })
+            .then(() => {
+              msg.textContent = 'Subscribed. Check your inbox to confirm.';
+            })
+            .catch(() => {
+              msg.textContent = 'Could not subscribe. Please try again.';
+            });
         },
         { signal }
       );
@@ -643,19 +687,19 @@ export default function SiteScripts() {
             (bad as HTMLElement).focus();
             return;
           }
-          if (form.dataset.endpoint) {
-            ok.textContent = 'Sending…';
-            fetch(form.dataset.endpoint, { method: 'POST', body: new FormData(form) })
-              .then((r) => {
-                if (!r.ok) throw 0;
-                location.href = '/thank-you';
-              })
-              .catch(() => {
-                ok.textContent = 'Could not send. Please email info@cosmeticsciencelab.com.';
-              });
+          if (recaptchaTokenFor(form) === null) {
+            ok.textContent = 'Please confirm the reCAPTCHA checkbox.';
             return;
           }
-          ok.textContent = 'Thanks. This is a design preview. On the live site this enquiry goes straight to the right team.';
+          ok.textContent = 'Sending…';
+          fetch(form.dataset.endpoint || '/api/contact', { method: 'POST', body: new FormData(form) })
+            .then((r) => {
+              if (!r.ok) throw 0;
+              location.href = '/thank-you';
+            })
+            .catch(() => {
+              ok.textContent = 'Could not send. Please email info@cosmeticsciencelab.com.';
+            });
         },
         { signal }
       )
