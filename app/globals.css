@@ -360,6 +360,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--ink-2);padding-top:22p
 @media (max-width:860px){.chiprows{grid-template-columns:1fr}}
 footer .wrap{grid-template-columns:1.3fr repeat(5,1fr)}
 @media (max-width:1100px){footer .wrap{grid-template-columns:repeat(3,1fr)}footer .wrap > div:first-child{grid-column:1/-1}}
+@media (min-width:1101px){footer h4{margin-bottom:61px}}
 @media (max-width:560px){footer .wrap{grid-template-columns:1fr 1fr}}
 .cta-band .eyebrow{color:var(--aqua)}.cta-band .eyebrow::before{background:var(--aqua)}
 .cta-band h2 em{font-style:normal;color:var(--aqua)}
