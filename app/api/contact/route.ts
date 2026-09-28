@@ -23,6 +23,12 @@ export async function POST(req: NextRequest) {
   const fields: [string, string][] = [];
   const attachments: { filename: string; content: Buffer; contentType?: string }[] = [];
 
+  // Forms with their own dedicated "website_hp" honeypot (supplier, partner) also have a
+  // real "Company website" field named "website" — only treat "website" as a honeypot when
+  // there's no separate "website_hp" field, i.e. the main enquiry form, which reuses "website"
+  // as its own honeypot and collects no real website field.
+  const hasDedicatedHoneypot = formData.has('website_hp');
+
   for (const [key, value] of formData.entries()) {
     if (key === 'g-recaptcha-response') continue;
     if (HONEYPOT_FIELDS.has(key)) {
@@ -31,7 +37,7 @@ export async function POST(req: NextRequest) {
       }
       continue;
     }
-    if (HONEYPOT_ONLY_FORMS.has(key) && typeof value === 'string') {
+    if (!hasDedicatedHoneypot && HONEYPOT_ONLY_FORMS.has(key) && typeof value === 'string') {
       if (value.trim()) {
         return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
       }
