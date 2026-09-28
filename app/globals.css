@@ -550,6 +550,30 @@ p a:not(.btn):not(.link),.note a,.lede a{text-decoration:underline;text-underlin
 .sec-card:hover .sec-foot .arr{transform:translateX(4px)}
 @media (max-width:1100px){.sec-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.sec-grid{grid-template-columns:1fr}}
+/* ---- application/market hub cards ---- */
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hub-card{display:flex;flex-direction:column;border:1.5px solid var(--lilac-2);border-radius:var(--r);overflow:hidden;background:#fff;text-decoration:none;color:var(--text);transition:border-color .2s,box-shadow .2s,transform .2s}
+.hub-card:hover{border-color:var(--purple);box-shadow:0 14px 34px rgba(27,17,48,.12);transform:translateY(-3px)}
+.hub-img{aspect-ratio:4/3;max-width:100%;overflow:hidden;background:#E4DFEA;position:relative}
+.hub-img img,.hub-img canvas{width:100%;height:100%;display:block;object-fit:cover}
+.hub-body{padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.hub-body b{font:400 21px var(--serif)}
+.hub-body>span{font-size:14px;color:var(--muted)}
+.hub-body em{font-style:normal;font:500 14px var(--sans);color:var(--accent-text);margin-top:6px}
+.hub-card.mk{padding:26px 24px}
+.hub-card.mk .hub-body{padding:0;gap:8px}
+@media (max-width:1100px){.hub-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.hub-grid{grid-template-columns:1fr}}
+/* ---- ingredient A-Z index ---- */
+.az-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1.5px solid var(--text);border-left:1px solid var(--line-2)}
+.az-card{display:flex;flex-direction:column;gap:8px;padding:22px 24px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);text-decoration:none;color:var(--text);transition:background .2s}
+.az-card:hover{background:var(--bg-2)}
+.az-card b{font:400 20px var(--serif)}
+.az-str{display:flex;align-items:center;gap:10px;font-size:13px}
+.az-str em{font-style:normal;color:var(--muted)}
+.az-card small{font-size:13px;color:var(--muted)}
+@media (max-width:900px){.az-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.az-grid{grid-template-columns:1fr}}
 .page-hero .tile svg{width:100%;height:100%;display:block}
 
 /* ===== FACILITY ===== */
