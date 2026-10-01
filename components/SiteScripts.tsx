@@ -86,7 +86,7 @@ export default function SiteScripts() {
 
     // ---- Cookie consent + analytics ----
     // Put your Google Analytics 4 ID here. Analytics loads only after accept.
-    const GA_ID = '';
+    const GA_ID = 'G-7PY49T4D7S';
     const store = {
       get(): string | null {
         try {
