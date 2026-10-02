@@ -1,0 +1,1437 @@
+[
+ {
+  "source": "/about.html",
+  "destination": "/about",
+  "statusCode": 301
+ },
+ {
+  "source": "/acne-oil-control.html",
+  "destination": "/applications/acne-oil-control",
+  "statusCode": 301
+ },
+ {
+  "source": "/anti-ageing.html",
+  "destination": "/applications/anti-ageing",
+  "statusCode": 301
+ },
+ {
+  "source": "/applications.html",
+  "destination": "/applications",
+  "statusCode": 301
+ },
+ {
+  "source": "/baby-care.html",
+  "destination": "/sectors/baby-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-analytical.html",
+  "destination": "/bioscience/analytical",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-biotech-actives.html",
+  "destination": "/bioscience/biotech-actives",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-dna-authentication.html",
+  "destination": "/bioscience/dna-authentication",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-extracts-delivery.html",
+  "destination": "/bioscience/extracts-delivery",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-in-vitro-efficacy.html",
+  "destination": "/bioscience/in-vitro-efficacy",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-in-vitro-safety.html",
+  "destination": "/bioscience/in-vitro-safety",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-microbiology.html",
+  "destination": "/bioscience/microbiology",
+  "statusCode": 301
+ },
+ {
+  "source": "/bioscience.html",
+  "destination": "/bioscience",
+  "statusCode": 301
+ },
+ {
+  "source": "/body-care.html",
+  "destination": "/sectors/body-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/brightening.html",
+  "destination": "/applications/brightening",
+  "statusCode": 301
+ },
+ {
+  "source": "/careers.html",
+  "destination": "/careers",
+  "statusCode": 301
+ },
+ {
+  "source": "/case-studies.html",
+  "destination": "/case-studies",
+  "statusCode": 301
+ },
+ {
+  "source": "/case-study-body-lotion-deformulation.html",
+  "destination": "/case-studies/body-lotion-deformulation",
+  "statusCode": 301
+ },
+ {
+  "source": "/case-study-technical-benchmark-study.html",
+  "destination": "/case-studies/technical-benchmark-study",
+  "statusCode": 301
+ },
+ {
+  "source": "/claims-clinical.html",
+  "destination": "/services/claims-clinical",
+  "statusCode": 301
+ },
+ {
+  "source": "/clean-natural.html",
+  "destination": "/sectors/clean-natural",
+  "statusCode": 301
+ },
+ {
+  "source": "/colour-cosmetics.html",
+  "destination": "/sectors/colour-cosmetics",
+  "statusCode": 301
+ },
+ {
+  "source": "/contact.html",
+  "destination": "/contact",
+  "statusCode": 301
+ },
+ {
+  "source": "/dandruff-scalp.html",
+  "destination": "/applications/dandruff-scalp",
+  "statusCode": 301
+ },
+ {
+  "source": "/evidence.html",
+  "destination": "/evidence",
+  "statusCode": 301
+ },
+ {
+  "source": "/faq.html",
+  "destination": "/faq",
+  "statusCode": 301
+ },
+ {
+  "source": "/formulation.html",
+  "destination": "/services/formulation",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-eu-cpsr.html",
+  "destination": "/guides/eu-cpsr",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-aha-bha.html",
+  "destination": "/guides/glossary/aha-bha",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-challenge-test.html",
+  "destination": "/guides/glossary/challenge-test",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-cmr.html",
+  "destination": "/guides/glossary/cmr",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-corneometer.html",
+  "destination": "/guides/glossary/corneometer",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-cpnp.html",
+  "destination": "/guides/glossary/cpnp",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-emulsion.html",
+  "destination": "/guides/glossary/emulsion",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-hript.html",
+  "destination": "/guides/glossary/hript",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-humectant.html",
+  "destination": "/guides/glossary/humectant",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-in-vitro.html",
+  "destination": "/guides/glossary/in-vitro",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-inci.html",
+  "destination": "/guides/glossary/inci",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-iso-16128.html",
+  "destination": "/guides/glossary/iso-16128",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-iso-22716.html",
+  "destination": "/guides/glossary/iso-22716",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-mocra.html",
+  "destination": "/guides/glossary/mocra",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-mos.html",
+  "destination": "/guides/glossary/mos",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-noael.html",
+  "destination": "/guides/glossary/noael",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-peptides.html",
+  "destination": "/guides/glossary/peptides",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-ph.html",
+  "destination": "/guides/glossary/ph",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-pif.html",
+  "destination": "/guides/glossary/pif",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-responsible-person.html",
+  "destination": "/guides/glossary/responsible-person",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-retinoids.html",
+  "destination": "/guides/glossary/retinoids",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-rheology.html",
+  "destination": "/guides/glossary/rheology",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-spf.html",
+  "destination": "/guides/glossary/spf",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-stability-testing.html",
+  "destination": "/guides/glossary/stability-testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-surfactant.html",
+  "destination": "/guides/glossary/surfactant",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-tewl.html",
+  "destination": "/guides/glossary/tewl",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-uva.html",
+  "destination": "/guides/glossary/uva",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary.html",
+  "destination": "/guides/glossary",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-iso-11930-preservative-efficacy-testing.html",
+  "destination": "/guides/iso-11930-preservative-efficacy-testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/guides.html",
+  "destination": "/guides",
+  "statusCode": 301
+ },
+ {
+  "source": "/hair-care.html",
+  "destination": "/sectors/hair-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/hair-growth.html",
+  "destination": "/applications/hair-growth",
+  "statusCode": 301
+ },
+ {
+  "source": "/halal-cosmetics.html",
+  "destination": "/sectors/halal-cosmetics",
+  "statusCode": 301
+ },
+ {
+  "source": "/hydration-barrier.html",
+  "destination": "/applications/hydration-barrier",
+  "statusCode": 301
+ },
+ {
+  "source": "/hyperpigmentation.html",
+  "destination": "/applications/hyperpigmentation",
+  "statusCode": 301
+ },
+ {
+  "source": "/ias-brands.html",
+  "destination": "/services/ingredient-application-science/brands",
+  "statusCode": 301
+ },
+ {
+  "source": "/ias-ingredient-suppliers.html",
+  "destination": "/services/ingredient-application-science/ingredient-suppliers",
+  "statusCode": 301
+ },
+ {
+  "source": "/ingredient-application-science.html",
+  "destination": "/services/ingredient-application-science",
+  "statusCode": 301
+ },
+ {
+  "source": "/ingredients.html",
+  "destination": "/ingredients",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-dermatologically-tested.html",
+  "destination": "/insights/dermatologically-tested",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-allantoin.html",
+  "destination": "/ingredients/allantoin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-alpha-arbutin.html",
+  "destination": "/ingredients/alpha-arbutin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-antioxidants-sunscreen.html",
+  "destination": "/ingredients/antioxidants-sunscreen",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-azelaic-acid.html",
+  "destination": "/ingredients/azelaic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bakuchiol.html",
+  "destination": "/ingredients/bakuchiol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bhringraj.html",
+  "destination": "/ingredients/bhringraj",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-biotin.html",
+  "destination": "/ingredients/biotin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bisabolol.html",
+  "destination": "/ingredients/bisabolol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-caffeine.html",
+  "destination": "/ingredients/caffeine",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-centella-asiatica.html",
+  "destination": "/ingredients/centella-asiatica",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-ceramides.html",
+  "destination": "/ingredients/ceramides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-clays.html",
+  "destination": "/ingredients/clays",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-climbazole.html",
+  "destination": "/ingredients/climbazole",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-colloidal-oatmeal.html",
+  "destination": "/ingredients/colloidal-oatmeal",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-ferments.html",
+  "destination": "/ingredients/ferments",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glutathione.html",
+  "destination": "/ingredients/glutathione",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glycerin.html",
+  "destination": "/ingredients/glycerin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glycolic-acid.html",
+  "destination": "/ingredients/glycolic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-hair-growth-complexes.html",
+  "destination": "/ingredients/hair-growth-complexes",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-hyaluronic-acid.html",
+  "destination": "/ingredients/hyaluronic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-iron-oxides.html",
+  "destination": "/ingredients/iron-oxides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-kojic-acid.html",
+  "destination": "/ingredients/kojic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-lactic-acid.html",
+  "destination": "/ingredients/lactic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-licorice.html",
+  "destination": "/ingredients/licorice",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-mild-surfactants.html",
+  "destination": "/ingredients/mild-surfactants",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-niacinamide.html",
+  "destination": "/ingredients/niacinamide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-onion-extract.html",
+  "destination": "/ingredients/onion-extract",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-panthenol.html",
+  "destination": "/ingredients/panthenol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-papaya-enzyme.html",
+  "destination": "/ingredients/papaya-enzyme",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-peptides.html",
+  "destination": "/ingredients/peptides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-piroctone-olamine.html",
+  "destination": "/ingredients/piroctone-olamine",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-postbiotics.html",
+  "destination": "/ingredients/postbiotics",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-prebiotics.html",
+  "destination": "/ingredients/prebiotics",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-retinol.html",
+  "destination": "/ingredients/retinol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-rosemary.html",
+  "destination": "/ingredients/rosemary",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-salicylic-acid.html",
+  "destination": "/ingredients/salicylic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-squalane.html",
+  "destination": "/ingredients/squalane",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-sulphur.html",
+  "destination": "/ingredients/sulphur",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-tea-tree-oil.html",
+  "destination": "/ingredients/tea-tree-oil",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-titanium-dioxide.html",
+  "destination": "/ingredients/titanium-dioxide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-tranexamic-acid.html",
+  "destination": "/ingredients/tranexamic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-urea.html",
+  "destination": "/ingredients/urea",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-uv-filters.html",
+  "destination": "/ingredients/uv-filters",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-vitamin-c.html",
+  "destination": "/ingredients/vitamin-c",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-oxide.html",
+  "destination": "/ingredients/zinc-oxide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-pca.html",
+  "destination": "/ingredients/zinc-pca",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-pyrithione.html",
+  "destination": "/ingredients/zinc-pyrithione",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-mocra.html",
+  "destination": "/insights/mocra",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-recall-hand-sanitiser-methanol.html",
+  "destination": "/insights/recall-hand-sanitiser-methanol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-sunscreen-filters.html",
+  "destination": "/insights/sunscreen-filters",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-uae-cosmeceuticals.html",
+  "destination": "/insights/uae-cosmeceuticals",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-us-skin-trends.html",
+  "destination": "/insights/us-skin-trends",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-zinc-pyrithione.html",
+  "destination": "/insights/zinc-pyrithione",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights.html",
+  "destination": "/insights",
+  "statusCode": 301
+ },
+ {
+  "source": "/manufacturing.html",
+  "destination": "/services/manufacturing",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-anz.html",
+  "destination": "/markets/australia-new-zealand",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-asean.html",
+  "destination": "/markets/asean",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-ca.html",
+  "destination": "/markets/canada",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-eu.html",
+  "destination": "/markets/eu",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-gcc.html",
+  "destination": "/markets/gcc",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-in.html",
+  "destination": "/markets/india",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-uk.html",
+  "destination": "/markets/uk",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-us.html",
+  "destination": "/markets/us",
+  "statusCode": 301
+ },
+ {
+  "source": "/markets.html",
+  "destination": "/markets",
+  "statusCode": 301
+ },
+ {
+  "source": "/mens-grooming.html",
+  "destination": "/sectors/mens-grooming",
+  "statusCode": 301
+ },
+ {
+  "source": "/microbiome-friendly.html",
+  "destination": "/applications/microbiome-friendly",
+  "statusCode": 301
+ },
+ {
+  "source": "/oral-care.html",
+  "destination": "/sectors/oral-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/partners.html",
+  "destination": "/partners",
+  "statusCode": 301
+ },
+ {
+  "source": "/personal-care.html",
+  "destination": "/sectors/personal-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/privacy.html",
+  "destination": "/privacy",
+  "statusCode": 301
+ },
+ {
+  "source": "/process.html",
+  "destination": "/process",
+  "statusCode": 301
+ },
+ {
+  "source": "/product-development.html",
+  "destination": "/services/product-development",
+  "statusCode": 301
+ },
+ {
+  "source": "/quality.html",
+  "destination": "/quality",
+  "statusCode": 301
+ },
+ {
+  "source": "/regulatory.html",
+  "destination": "/services/regulatory",
+  "statusCode": 301
+ },
+ {
+  "source": "/reverse-engineering.html",
+  "destination": "/services/reverse-engineering",
+  "statusCode": 301
+ },
+ {
+  "source": "/sectors.html",
+  "destination": "/sectors",
+  "statusCode": 301
+ },
+ {
+  "source": "/sensitive-skin.html",
+  "destination": "/applications/sensitive-skin",
+  "statusCode": 301
+ },
+ {
+  "source": "/skin-care.html",
+  "destination": "/sectors/skin-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/sourcing.html",
+  "destination": "/services/sourcing",
+  "statusCode": 301
+ },
+ {
+  "source": "/startups.html",
+  "destination": "/startups",
+  "statusCode": 301
+ },
+ {
+  "source": "/sun-care.html",
+  "destination": "/sectors/sun-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/sun-protection.html",
+  "destination": "/applications/sun-protection",
+  "statusCode": 301
+ },
+ {
+  "source": "/suppliers.html",
+  "destination": "/suppliers",
+  "statusCode": 301
+ },
+ {
+  "source": "/terms.html",
+  "destination": "/terms",
+  "statusCode": 301
+ },
+ {
+  "source": "/testing.html",
+  "destination": "/services/testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/thank-you.html",
+  "destination": "/thank-you",
+  "statusCode": 301
+ },
+ {
+  "source": "/acne-oil-control",
+  "destination": "/applications/acne-oil-control",
+  "statusCode": 301
+ },
+ {
+  "source": "/anti-ageing",
+  "destination": "/applications/anti-ageing",
+  "statusCode": 301
+ },
+ {
+  "source": "/baby-care",
+  "destination": "/sectors/baby-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-analytical",
+  "destination": "/bioscience/analytical",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-biotech-actives",
+  "destination": "/bioscience/biotech-actives",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-dna-authentication",
+  "destination": "/bioscience/dna-authentication",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-extracts-delivery",
+  "destination": "/bioscience/extracts-delivery",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-in-vitro-efficacy",
+  "destination": "/bioscience/in-vitro-efficacy",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-in-vitro-safety",
+  "destination": "/bioscience/in-vitro-safety",
+  "statusCode": 301
+ },
+ {
+  "source": "/bio-microbiology",
+  "destination": "/bioscience/microbiology",
+  "statusCode": 301
+ },
+ {
+  "source": "/body-care",
+  "destination": "/sectors/body-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/brightening",
+  "destination": "/applications/brightening",
+  "statusCode": 301
+ },
+ {
+  "source": "/case-study-body-lotion-deformulation",
+  "destination": "/case-studies/body-lotion-deformulation",
+  "statusCode": 301
+ },
+ {
+  "source": "/case-study-technical-benchmark-study",
+  "destination": "/case-studies/technical-benchmark-study",
+  "statusCode": 301
+ },
+ {
+  "source": "/claims-clinical",
+  "destination": "/services/claims-clinical",
+  "statusCode": 301
+ },
+ {
+  "source": "/clean-natural",
+  "destination": "/sectors/clean-natural",
+  "statusCode": 301
+ },
+ {
+  "source": "/colour-cosmetics",
+  "destination": "/sectors/colour-cosmetics",
+  "statusCode": 301
+ },
+ {
+  "source": "/dandruff-scalp",
+  "destination": "/applications/dandruff-scalp",
+  "statusCode": 301
+ },
+ {
+  "source": "/formulation",
+  "destination": "/services/formulation",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-eu-cpsr",
+  "destination": "/guides/eu-cpsr",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-aha-bha",
+  "destination": "/guides/glossary/aha-bha",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-challenge-test",
+  "destination": "/guides/glossary/challenge-test",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-cmr",
+  "destination": "/guides/glossary/cmr",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-corneometer",
+  "destination": "/guides/glossary/corneometer",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-cpnp",
+  "destination": "/guides/glossary/cpnp",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-emulsion",
+  "destination": "/guides/glossary/emulsion",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-hript",
+  "destination": "/guides/glossary/hript",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-humectant",
+  "destination": "/guides/glossary/humectant",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-in-vitro",
+  "destination": "/guides/glossary/in-vitro",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-inci",
+  "destination": "/guides/glossary/inci",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-iso-16128",
+  "destination": "/guides/glossary/iso-16128",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-iso-22716",
+  "destination": "/guides/glossary/iso-22716",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-mocra",
+  "destination": "/guides/glossary/mocra",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-mos",
+  "destination": "/guides/glossary/mos",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-noael",
+  "destination": "/guides/glossary/noael",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-peptides",
+  "destination": "/guides/glossary/peptides",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-ph",
+  "destination": "/guides/glossary/ph",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-pif",
+  "destination": "/guides/glossary/pif",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-responsible-person",
+  "destination": "/guides/glossary/responsible-person",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-retinoids",
+  "destination": "/guides/glossary/retinoids",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-rheology",
+  "destination": "/guides/glossary/rheology",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-spf",
+  "destination": "/guides/glossary/spf",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-stability-testing",
+  "destination": "/guides/glossary/stability-testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-surfactant",
+  "destination": "/guides/glossary/surfactant",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-tewl",
+  "destination": "/guides/glossary/tewl",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary-uva",
+  "destination": "/guides/glossary/uva",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-glossary",
+  "destination": "/guides/glossary",
+  "statusCode": 301
+ },
+ {
+  "source": "/guide-iso-11930-preservative-efficacy-testing",
+  "destination": "/guides/iso-11930-preservative-efficacy-testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/hair-care",
+  "destination": "/sectors/hair-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/hair-growth",
+  "destination": "/applications/hair-growth",
+  "statusCode": 301
+ },
+ {
+  "source": "/halal-cosmetics",
+  "destination": "/sectors/halal-cosmetics",
+  "statusCode": 301
+ },
+ {
+  "source": "/hydration-barrier",
+  "destination": "/applications/hydration-barrier",
+  "statusCode": 301
+ },
+ {
+  "source": "/hyperpigmentation",
+  "destination": "/applications/hyperpigmentation",
+  "statusCode": 301
+ },
+ {
+  "source": "/ias-brands",
+  "destination": "/services/ingredient-application-science/brands",
+  "statusCode": 301
+ },
+ {
+  "source": "/ias-ingredient-suppliers",
+  "destination": "/services/ingredient-application-science/ingredient-suppliers",
+  "statusCode": 301
+ },
+ {
+  "source": "/ingredient-application-science",
+  "destination": "/services/ingredient-application-science",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-dermatologically-tested",
+  "destination": "/insights/dermatologically-tested",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-allantoin",
+  "destination": "/ingredients/allantoin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-alpha-arbutin",
+  "destination": "/ingredients/alpha-arbutin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-antioxidants-sunscreen",
+  "destination": "/ingredients/antioxidants-sunscreen",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-azelaic-acid",
+  "destination": "/ingredients/azelaic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bakuchiol",
+  "destination": "/ingredients/bakuchiol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bhringraj",
+  "destination": "/ingredients/bhringraj",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-biotin",
+  "destination": "/ingredients/biotin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-bisabolol",
+  "destination": "/ingredients/bisabolol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-caffeine",
+  "destination": "/ingredients/caffeine",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-centella-asiatica",
+  "destination": "/ingredients/centella-asiatica",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-ceramides",
+  "destination": "/ingredients/ceramides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-clays",
+  "destination": "/ingredients/clays",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-climbazole",
+  "destination": "/ingredients/climbazole",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-colloidal-oatmeal",
+  "destination": "/ingredients/colloidal-oatmeal",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-ferments",
+  "destination": "/ingredients/ferments",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glutathione",
+  "destination": "/ingredients/glutathione",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glycerin",
+  "destination": "/ingredients/glycerin",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-glycolic-acid",
+  "destination": "/ingredients/glycolic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-hair-growth-complexes",
+  "destination": "/ingredients/hair-growth-complexes",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-hyaluronic-acid",
+  "destination": "/ingredients/hyaluronic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-iron-oxides",
+  "destination": "/ingredients/iron-oxides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-kojic-acid",
+  "destination": "/ingredients/kojic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-lactic-acid",
+  "destination": "/ingredients/lactic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-licorice",
+  "destination": "/ingredients/licorice",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-mild-surfactants",
+  "destination": "/ingredients/mild-surfactants",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-niacinamide",
+  "destination": "/ingredients/niacinamide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-onion-extract",
+  "destination": "/ingredients/onion-extract",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-panthenol",
+  "destination": "/ingredients/panthenol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-papaya-enzyme",
+  "destination": "/ingredients/papaya-enzyme",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-peptides",
+  "destination": "/ingredients/peptides",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-piroctone-olamine",
+  "destination": "/ingredients/piroctone-olamine",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-postbiotics",
+  "destination": "/ingredients/postbiotics",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-prebiotics",
+  "destination": "/ingredients/prebiotics",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-retinol",
+  "destination": "/ingredients/retinol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-rosemary",
+  "destination": "/ingredients/rosemary",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-salicylic-acid",
+  "destination": "/ingredients/salicylic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-squalane",
+  "destination": "/ingredients/squalane",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-sulphur",
+  "destination": "/ingredients/sulphur",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-tea-tree-oil",
+  "destination": "/ingredients/tea-tree-oil",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-titanium-dioxide",
+  "destination": "/ingredients/titanium-dioxide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-tranexamic-acid",
+  "destination": "/ingredients/tranexamic-acid",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-urea",
+  "destination": "/ingredients/urea",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-uv-filters",
+  "destination": "/ingredients/uv-filters",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-vitamin-c",
+  "destination": "/ingredients/vitamin-c",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-oxide",
+  "destination": "/ingredients/zinc-oxide",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-pca",
+  "destination": "/ingredients/zinc-pca",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-ingredient-zinc-pyrithione",
+  "destination": "/ingredients/zinc-pyrithione",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-mocra",
+  "destination": "/insights/mocra",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-recall-hand-sanitiser-methanol",
+  "destination": "/insights/recall-hand-sanitiser-methanol",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-sunscreen-filters",
+  "destination": "/insights/sunscreen-filters",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-uae-cosmeceuticals",
+  "destination": "/insights/uae-cosmeceuticals",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-us-skin-trends",
+  "destination": "/insights/us-skin-trends",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-zinc-pyrithione",
+  "destination": "/insights/zinc-pyrithione",
+  "statusCode": 301
+ },
+ {
+  "source": "/manufacturing",
+  "destination": "/services/manufacturing",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-anz",
+  "destination": "/markets/australia-new-zealand",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-asean",
+  "destination": "/markets/asean",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-ca",
+  "destination": "/markets/canada",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-eu",
+  "destination": "/markets/eu",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-gcc",
+  "destination": "/markets/gcc",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-in",
+  "destination": "/markets/india",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-uk",
+  "destination": "/markets/uk",
+  "statusCode": 301
+ },
+ {
+  "source": "/market-us",
+  "destination": "/markets/us",
+  "statusCode": 301
+ },
+ {
+  "source": "/mens-grooming",
+  "destination": "/sectors/mens-grooming",
+  "statusCode": 301
+ },
+ {
+  "source": "/microbiome-friendly",
+  "destination": "/applications/microbiome-friendly",
+  "statusCode": 301
+ },
+ {
+  "source": "/oral-care",
+  "destination": "/sectors/oral-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/personal-care",
+  "destination": "/sectors/personal-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/product-development",
+  "destination": "/services/product-development",
+  "statusCode": 301
+ },
+ {
+  "source": "/regulatory",
+  "destination": "/services/regulatory",
+  "statusCode": 301
+ },
+ {
+  "source": "/reverse-engineering",
+  "destination": "/services/reverse-engineering",
+  "statusCode": 301
+ },
+ {
+  "source": "/sensitive-skin",
+  "destination": "/applications/sensitive-skin",
+  "statusCode": 301
+ },
+ {
+  "source": "/skin-care",
+  "destination": "/sectors/skin-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/sourcing",
+  "destination": "/services/sourcing",
+  "statusCode": 301
+ },
+ {
+  "source": "/sun-care",
+  "destination": "/sectors/sun-care",
+  "statusCode": 301
+ },
+ {
+  "source": "/sun-protection",
+  "destination": "/applications/sun-protection",
+  "statusCode": 301
+ },
+ {
+  "source": "/testing",
+  "destination": "/services/testing",
+  "statusCode": 301
+ },
+ {
+  "source": "/insights-templates",
+  "destination": "/insights",
+  "statusCode": 301
+ },
+ {
+  "source": "/tpl-:slug",
+  "destination": "/insights",
+  "statusCode": 301
+ }
+]

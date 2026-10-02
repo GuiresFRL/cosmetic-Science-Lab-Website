@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cosmetic Science Lab — Next.js site
 
-## Getting Started
+Next.js (App Router) build of cosmeticsciencelab.com. Every page, URL, title, description, canonical, hreflang, Open Graph tag and JSON-LD block matches the audited static build.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run build
+npm run start      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How it is organised
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What it does |
+|---|---|
+| `content/manifest.json` | One entry per page: URL, title, description, keywords, robots, canonical, hreflang, Open Graph and JSON-LD |
+| `content/pages/*.html` | The body HTML of each page (navigation, content and footer) |
+| `app/[[...slug]]/page.tsx` | Serves every URL in the manifest; `dynamicParams = false`, so any other URL returns HTTP 404 |
+| `app/not-found.tsx` | The branded 404 page (real 404 status) |
+| `app/sitemap.ts`, `app/robots.ts` | `/sitemap.xml` and `/robots.txt`, generated from the manifest (noindex pages excluded) |
+| `redirects.json` | 287 permanent (HTTP 301) redirects from the old flat `.html` addresses, loaded in `next.config.mjs` |
+| `public/` | `styles.css`, `site.js`, `search-index.json`, images and downloads |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## URL structure (frozen)
 
-## Learn More
+- `/` home · `/about` `/careers` `/contact` `/faq` `/process` `/quality` `/evidence` `/startups` `/partners` `/suppliers` `/privacy` `/terms`
+- `/services/<service>` and `/services/ingredient-application-science/<audience>`
+- `/sectors/<sector>` · `/applications/<application>` · `/markets/<market>`
+- `/insights/<article>` · `/ingredients/<ingredient>` · `/case-studies/<case>`
+- `/guides/<guide>` · `/guides/glossary/<term>` · `/bioscience/<area>`
+- Lowercase, hyphenated, no trailing slash, no `.html`.
 
-To learn more about Next.js, take a look at the following resources:
+## Editing a page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit the matching file in `content/pages/` (body) and its entry in `content/manifest.json` (metadata). To add a page, add both and it is picked up by the route, the sitemap and the build automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Before launch
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Forms post to the endpoints set in the page HTML (`data-endpoint`); connect them to your form handler or CRM.
+- Replace any image still marked for licensing (see image notes in the hand-over).
+- Submit `https://www.cosmeticsciencelab.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
