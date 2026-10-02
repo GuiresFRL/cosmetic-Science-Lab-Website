@@ -88,7 +88,7 @@
 
   // ---- Cookie consent + analytics ----
   // Put your Google Analytics 4 ID here (e.g. 'G-ABC123XYZ'). Analytics loads only after the visitor accepts.
-  const GA_ID='';
+  const GA_ID='G-7PY49T4D7S';
   const store={get(){try{return localStorage.getItem('csl-consent');}catch(_){return null;}},set(v){try{localStorage.setItem('csl-consent',v);}catch(_){}}};
   const loadGA=()=>{if(!GA_ID||window.gtag)return;const sc=document.createElement('script');sc.async=true;sc.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(sc);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});};
   const banner=document.getElementById('consent');
