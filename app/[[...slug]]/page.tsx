@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ROUTED, findPage, pageHtml } from '@/lib/pages';
+import { ROUTED, findPage, pageHtml, SITE_NOINDEX } from '@/lib/pages';
 
 export const dynamicParams = false;           // only the frozen URLs exist; anything else is a real 404
 export function generateStaticParams() { return ROUTED.map(p => ({ slug: p.slug })); }
@@ -11,11 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = findPage((await params).slug);
   if (!p) return {};
   const [index, follow] = p.robots.split(',').map(s => s.trim());
+  const open = !SITE_NOINDEX;                   // pre-launch: every page is noindex, nofollow
   return {
     title: { absolute: p.title },
     description: p.description ?? undefined,
     keywords: p.keywords ?? undefined,
-    robots: { index: index !== 'noindex', follow: follow !== 'nofollow' },
+    robots: { index: open && index !== 'noindex', follow: open && follow !== 'nofollow' },
     alternates: { canonical: p.canonical ?? undefined, languages: p.languages },
     openGraph: {
       type: p.og.type === 'article' ? 'article' : 'website',
@@ -36,7 +37,7 @@ export default async function Page({ params }: Props) {
       {p.jsonld.map((d, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }} />
       ))}
-      <div className="page-root" dangerouslySetInnerHTML={{ __html: pageHtml(p.key) }} />
+      <div className="page-root" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: pageHtml(p.key) }} />
     </>
   );
 }

@@ -10,6 +10,7 @@ export type PageEntry = {
 };
 export const PAGES = manifest as PageEntry[];
 export const SITE_URL = 'https://www.cosmeticsciencelab.com';
+export const SITE_NOINDEX = true;   // pre-launch: set to false (and remove headers() in next.config.mjs) to allow indexing
 // pages served by the catch-all route (404 is rendered by app/not-found.tsx)
 export const ROUTED = PAGES.filter(p => p.path !== '/404');
 export function findPage(slug: string[] | undefined): PageEntry | undefined {
