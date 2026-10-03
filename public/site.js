@@ -143,7 +143,7 @@
       e.preventDefault();const em=nf.querySelector('input[type=email]'),msg=nf.querySelector('.small');msg.hidden=false;
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){em.classList.add('invalid');msg.textContent='Enter a valid business email.';em.focus();return;}
       em.classList.remove('invalid');
-      if(nf.dataset.endpoint){fetch(nf.dataset.endpoint,{method:'POST',body:new FormData(nf)}).then(()=>{msg.textContent='Subscribed. Check your inbox to confirm.';}).catch(()=>{msg.textContent='Could not subscribe. Please try again.';});return;}
+      if(nf.dataset.endpoint){fetch(nf.dataset.endpoint,{method:'POST',body:new FormData(nf)}).then(r=>{if(!r.ok)throw 0;msg.textContent='Thank you. We have received your sign-up.';nf.reset();}).catch(()=>{msg.textContent='Could not subscribe. Please try again.';});return;}
       msg.textContent='Thanks. This is a design preview; on the live site you will be subscribed.';
     });
   });
@@ -160,6 +160,31 @@
   if(abt){const tl=[...abt.querySelectorAll('a[href^="#"]')],scope=abt.closest('.page')||document,secs=tl.map(a=>scope.querySelector('#'+a.getAttribute('href').slice(1)));
     const spy=()=>{if(!abt.offsetParent)return;let cur=tl[0];secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<220)cur=tl[i]});tl.forEach(a=>a.classList.toggle('on',a===cur));};
     addEventListener('scroll',spy,{passive:true});spy();}
+
+
+  // ---- Report a product problem ----
+  const rf=document.getElementById('reportForm');
+  if(rf){
+    const anon=rf.querySelector('#r-anon'),contact=rf.querySelector('#r-contact'),email=rf.querySelector('#r-email'),ok=rf.querySelector('#reportOk');
+    const sync=()=>{contact.hidden=anon.checked;if(anon.checked){email.value='';rf.querySelector('#r-name').value='';}};
+    anon.addEventListener('change',sync);sync();
+    rf.addEventListener('submit',e=>{
+      e.preventDefault();ok.hidden=false;
+      if(rf.querySelector('[name="website"]').value)return;
+      let bad=null;const mark=(el,v)=>{el.classList.toggle('invalid',!v);el.setAttribute('aria-invalid',!v);if(!v&&!bad)bad=el;};
+      rf.querySelectorAll('[required]').forEach(el=>mark(el,el.type==='checkbox'?el.checked:!!el.value.trim()));
+      const probs=rf.querySelectorAll('[name="problem_type"]:checked').length;const pb=rf.querySelector('#r-problems');pb.classList.toggle('invalid',!probs);if(!probs&&!bad)bad=pb.querySelector('input');
+      if(!anon.checked)mark(email,/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value));
+      const files=[...rf.querySelector('#r-photos').files];const fileBad=files.length>3||files.some(f=>f.size>5*1024*1024||!/^image\/(jpeg|png|webp)$/.test(f.type));
+      if(fileBad&&!bad)bad=rf.querySelector('#r-photos');
+      if(bad){ok.textContent=fileBad&&bad.id==='r-photos'?'Please attach up to 3 JPEG, PNG or WebP images, each under 5 MB.':'Please complete the highlighted fields.';bad.focus();return;}
+      if(rf.dataset.endpoint){ok.textContent='Sending your report…';
+        fetch(rf.dataset.endpoint,{method:'POST',body:new FormData(rf)}).then(r=>r.json().then(j=>({r,j}))).then(({r,j})=>{if(!r.ok)throw new Error(j.error||'failed');
+          ok.innerHTML='Thank you. Your report has been received. Your reference number is <b>'+j.reference+'</b>. Keep it if you contact us about this report.';rf.reset();sync();})
+        .catch(()=>{ok.textContent='Your report could not be sent. Please try again, or email info@cosmeticsciencelab.com.';});return;}
+      ok.textContent='Thank you. This is a design preview, so nothing was sent. On the live site your report is stored securely and you receive a reference number.';
+    });
+  }
 
   // ---- Insights filters (sector, application, market) ----
   const fb=document.getElementById('insFilters');

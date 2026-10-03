@@ -705,6 +705,11 @@
   "statusCode": 301
  },
  {
+  "source": "/report-a-problem.html",
+  "destination": "/report-a-problem",
+  "statusCode": 301
+ },
+ {
   "source": "/reverse-engineering.html",
   "destination": "/services/reverse-engineering",
   "statusCode": 301

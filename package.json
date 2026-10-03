@@ -15,9 +15,9 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "typescript": "^5.6.0",
     "@types/node": "^22.0.0",
     "@types/nodemailer": "^8.0.2",
-    "@types/react": "^19.0.0"
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.0"
   }
 }
