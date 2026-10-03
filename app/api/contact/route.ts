@@ -6,6 +6,10 @@ const HONEYPOT_FIELDS = new Set(['website_hp']);
 // The enquiry form on the contact page reuses "website" as its honeypot name.
 const HONEYPOT_ONLY_FORMS = new Set(['website']);
 
+// A form may pick its own recipient via a hidden "to" field, but only from this list
+// (otherwise anyone could post a form and make the server email an arbitrary address).
+const ALLOWED_TO = new Set(['careers@guires.com']);
+
 function labelize(key: string) {
   return key
     .replace(/_/g, ' ')
@@ -29,8 +33,14 @@ export async function POST(req: NextRequest) {
   // as its own honeypot and collects no real website field.
   const hasDedicatedHoneypot = formData.has('website_hp');
 
+  const requestedTo = formData.get('to');
+  const recipient =
+    typeof requestedTo === 'string' && ALLOWED_TO.has(requestedTo.trim().toLowerCase())
+      ? requestedTo.trim().toLowerCase()
+      : process.env.MAIL_TO;
+
   for (const [key, value] of formData.entries()) {
-    if (key === 'g-recaptcha-response') continue;
+    if (key === 'g-recaptcha-response' || key === 'to') continue;
     if (HONEYPOT_FIELDS.has(key)) {
       if (typeof value === 'string' && value.trim()) {
         return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
@@ -59,7 +69,7 @@ export async function POST(req: NextRequest) {
   }
 
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  if (secretKey) {
+  if (secretKey && formData.has('g-recaptcha-response')) {
     const token = formData.get('g-recaptcha-response');
     if (typeof token !== 'string' || !token) {
       return NextResponse.json({ error: 'CAPTCHA verification failed.' }, { status: 400 });
@@ -102,7 +112,7 @@ export async function POST(req: NextRequest) {
   try {
     await transporter.sendMail({
       from: `"Cosmetic Science Lab Website" <${process.env.SMTP_USER}>`,
-      to: process.env.MAIL_TO,
+      to: recipient,
       replyTo: emailField || undefined,
       subject,
       text: textBody,

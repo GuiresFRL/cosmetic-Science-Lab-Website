@@ -28,7 +28,7 @@
   <button type="button" role="tab" aria-selected="false" data-form="supplierForm">Supplier enquiries</button>
   <button type="button" role="tab" aria-selected="false" data-form="partnerForm">Partnership &amp; collaboration</button>
 </div>
-<form id="enquiry" class="enq-form" novalidate data-endpoint="">
+<form id="enquiry" class="enq-form" novalidate data-endpoint="/api/contact">
   <input type="hidden" name="enquiry_type" value="New business">
 
   <!-- Developer: set data-endpoint to your CRM / form-handler URL. Successful submits go to thank-you.html -->
@@ -57,7 +57,7 @@
     <div class="form-ok" id="formOk" hidden></div>
   </fieldset>
 </form>
-<form id="supplierForm" class="enq-form multi-form" novalidate data-endpoint="" enctype="multipart/form-data" hidden>
+<form id="supplierForm" class="enq-form multi-form" novalidate data-endpoint="/api/contact" enctype="multipart/form-data" hidden>
   <!-- Developer: set data-endpoint to your supplier-onboarding / procurement inbox handler -->
   <div class="hp" aria-hidden="true"><label for="s-website-hp">Leave this field empty</label><input id="s-website-hp" name="website_hp" tabindex="-1" autocomplete="off"></div>
   <input type="hidden" name="enquiry_type" value="Supplier">
@@ -83,7 +83,7 @@
   </fieldset>
   <fieldset><legend>Submit</legend><button class="btn btn-dark" type="submit">Submit supplier enquiry <span class="arr" aria-hidden="true">→</span></button><div class="form-ok" hidden></div></fieldset>
 </form>
-<form id="partnerForm" class="enq-form multi-form" novalidate data-endpoint="" enctype="multipart/form-data" hidden>
+<form id="partnerForm" class="enq-form multi-form" novalidate data-endpoint="/api/contact" enctype="multipart/form-data" hidden>
   <!-- Developer: set data-endpoint to your partnerships inbox handler -->
   <div class="hp" aria-hidden="true"><label for="p-website-hp">Leave this field empty</label><input id="p-website-hp" name="website_hp" tabindex="-1" autocomplete="off"></div>
   <input type="hidden" name="enquiry_type" value="Partnership">
