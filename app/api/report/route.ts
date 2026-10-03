@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import crypto from 'node:crypto';
-import nodemailer from 'nodemailer';
+import { sendMail, missingMailSettings } from '@/lib/mail';
 
 export const runtime = 'nodejs';
+export const maxDuration = 30;
 const MAX_FILES = 3, MAX_BYTES = 5 * 1024 * 1024, IMG = ['image/jpeg', 'image/png', 'image/webp'];
 const clip = (v: FormDataEntryValue | null, n = 500) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
 
@@ -46,22 +47,16 @@ export async function POST(req: Request) {
   ];
   const text = lines.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n') + (attachments.length ? `\nPhotos attached: ${attachments.length}` : '');
 
-  const port = Number(process.env.SMTP_PORT || 465);
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, port,
-    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : port === 465,
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-  });
+  const missingSettings = missingMailSettings();
+  if (missingSettings.length) {
+    console.error('Mail is not configured. Missing environment variables:', missingSettings.join(', '));
+    return NextResponse.json({ error: 'Could not send report' }, { status: 503 });
+  }
   try {
-    const info = await transporter.sendMail({
-      from: `"Cosmetic Science Lab Website" <${process.env.SMTP_USER}>`,
-      to: process.env.MAIL_TO,
-      replyTo: email || undefined,
+    await sendMail({
       subject: `${serious ? 'URGENT: possible serious effect. ' : ''}Product problem report ${reference}: ${brand} ${product}`,
-      text, attachments,
+      text, replyTo: email || undefined, attachments,
     });
-    console.log('Product report email sent', { reference, accepted: info.accepted, rejected: info.rejected });
-    if (!info.accepted || info.accepted.length === 0) return NextResponse.json({ error: 'Could not send report' }, { status: 502 });
   } catch (e) {
     console.error('Failed to send product report email:', e);
     return NextResponse.json({ error: 'Could not send report' }, { status: 502 });

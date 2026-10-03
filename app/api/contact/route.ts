@@ -1,131 +1,79 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { sendMail, missingMailSettings, type MailAttachment } from '@/lib/mail';
 
-// Fields the client-side scripts use purely as spam honeypots; never forward these.
-const HONEYPOT_FIELDS = new Set(['website_hp']);
-// The enquiry form on the contact page reuses "website" as its honeypot name.
-const HONEYPOT_ONLY_FORMS = new Set(['website']);
+export const runtime = 'nodejs';
+export const maxDuration = 30;
 
-// A form may pick its own recipient via a hidden "to" field, but only from this list
-// (otherwise anyone could post a form and make the server email an arbitrary address).
+// Spam traps. "website_hp" is a dedicated hidden field (supplier/partner forms). The main
+// enquiry form has no real website field, so there "website" is the trap; on the other forms
+// "website" is a real "Company website" answer and must be forwarded.
+const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+
+// A form may choose its recipient with a hidden "to" field, but only from this list;
+// otherwise anyone could post a form and make the server email an arbitrary address.
 const ALLOWED_TO = new Set(['careers@guires.com']);
 
-function labelize(key: string) {
-  return key
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-}
+const labelize = (key: string) => key.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const bad = (error: string, status: number) => NextResponse.json({ error }, { status });
 
 export async function POST(req: NextRequest) {
   let formData: FormData;
   try {
     formData = await req.formData();
   } catch {
-    return NextResponse.json({ error: 'Invalid form submission.' }, { status: 400 });
+    return bad('Invalid form submission.', 400);
   }
 
+  const hasDedicatedTrap = formData.has('website_hp');
   const fields: [string, string][] = [];
-  const attachments: { filename: string; content: Buffer; contentType?: string }[] = [];
-
-  // Forms with their own dedicated "website_hp" honeypot (supplier, partner) also have a
-  // real "Company website" field named "website" — only treat "website" as a honeypot when
-  // there's no separate "website_hp" field, i.e. the main enquiry form, which reuses "website"
-  // as its own honeypot and collects no real website field.
-  const hasDedicatedHoneypot = formData.has('website_hp');
-
-  const requestedTo = formData.get('to');
-  const recipient =
-    typeof requestedTo === 'string' && ALLOWED_TO.has(requestedTo.trim().toLowerCase())
-      ? requestedTo.trim().toLowerCase()
-      : process.env.MAIL_TO;
+  const attachments: MailAttachment[] = [];
 
   for (const [key, value] of formData.entries()) {
-    if (key === 'g-recaptcha-response' || key === 'to') continue;
-    if (HONEYPOT_FIELDS.has(key)) {
-      if (typeof value === 'string' && value.trim()) {
-        return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
-      }
-      continue;
-    }
-    if (!hasDedicatedHoneypot && HONEYPOT_ONLY_FORMS.has(key) && typeof value === 'string') {
-      if (value.trim()) {
-        return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
-      }
+    if (key === 'to') continue;
+
+    if (key === 'website_hp' || (!hasDedicatedTrap && key === 'website')) {
+      if (typeof value === 'string' && value.trim()) return bad('Spam detected.', 400);
       continue;
     }
 
     if (value instanceof File) {
       if (value.size === 0) continue;
-      const buffer = Buffer.from(await value.arrayBuffer());
-      attachments.push({ filename: value.name, content: buffer, contentType: value.type || undefined });
+      if (value.size > MAX_ATTACHMENT_BYTES) return bad('Attachment too large (10 MB maximum).', 413);
+      attachments.push({ filename: value.name, content: Buffer.from(await value.arrayBuffer()), contentType: value.type || undefined });
       continue;
     }
 
-    if (value.trim()) fields.push([key, value]);
+    if (value.trim()) fields.push([key, value.trim()]);
   }
 
-  if (fields.length === 0 && attachments.length === 0) {
-    return NextResponse.json({ error: 'Empty submission.' }, { status: 400 });
-  }
+  if (fields.length === 0 && attachments.length === 0) return bad('Empty submission.', 400);
 
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  if (secretKey && formData.has('g-recaptcha-response')) {
-    const token = formData.get('g-recaptcha-response');
-    if (typeof token !== 'string' || !token) {
-      return NextResponse.json({ error: 'CAPTCHA verification failed.' }, { status: 400 });
-    }
-    const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ secret: secretKey, response: token }),
-    });
-    const verifyJson = await verifyRes.json();
-    if (!verifyJson.success) {
-      return NextResponse.json({ error: 'CAPTCHA verification failed.' }, { status: 400 });
-    }
-  }
+  const get = (...keys: string[]) => fields.find(([k]) => keys.includes(k))?.[1];
+  const email = get('email');
+  const name = [get('first_name'), get('last_name')].filter(Boolean).join(' ');
+  const topic = get('topic', 'enquiry_type');
+  const requestedTo = formData.get('to');
+  const to = typeof requestedTo === 'string' && ALLOWED_TO.has(requestedTo.trim().toLowerCase())
+    ? requestedTo.trim().toLowerCase()
+    : undefined;   // undefined = default recipients (MAIL_TO)
 
-  const emailField = fields.find(([k]) => k === 'email')?.[1];
-  const nameParts = [fields.find(([k]) => k === 'first_name')?.[1], fields.find(([k]) => k === 'last_name')?.[1]]
-    .filter(Boolean)
-    .join(' ');
-  const topic = fields.find(([k]) => k === 'topic' || k === 'enquiry_type')?.[1];
-  const pageUrl = req.headers.get('referer') || 'unknown page';
-
-  const subject = `New website enquiry${topic ? ` — ${topic}` : ''}${nameParts ? ` from ${nameParts}` : ''}`;
-  const textBody =
+  const subject = `New website enquiry${topic ? ` — ${topic}` : ''}${name ? ` from ${name}` : ''}`;
+  const text =
     fields.map(([k, v]) => `${labelize(k)}: ${v}`).join('\n') +
-    `\n\nSubmitted from: ${pageUrl}` +
+    `\n\nSubmitted from: ${req.headers.get('referer') || 'unknown page'}` +
     (attachments.length ? `\nAttachments: ${attachments.map((a) => a.filename).join(', ')}` : '');
 
-  const port = Number(process.env.SMTP_PORT || 465);
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : port === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-
-  try {
-    const info = await transporter.sendMail({
-      from: `"Cosmetic Science Lab Website" <${process.env.SMTP_USER}>`,
-      to: recipient,
-      replyTo: emailField || undefined,
-      subject,
-      text: textBody,
-      attachments,
-    });
-    console.log('Enquiry email sent', { subject, accepted: info.accepted, rejected: info.rejected, response: info.response });
-    if (!info.accepted || info.accepted.length === 0) {
-      return NextResponse.json({ error: 'Could not send email.' }, { status: 502 });
-    }
-  } catch (err) {
-    console.error('Failed to send enquiry email:', err);
-    return NextResponse.json({ error: 'Could not send email.' }, { status: 502 });
+  const missing = missingMailSettings();
+  if (missing.length) {
+    console.error('Mail is not configured. Missing environment variables:', missing.join(', '));
+    return bad('Could not send. Please email info@cosmeticsciencelab.com.', 503);
   }
 
+  try {
+    await sendMail({ subject, text, to, replyTo: email, attachments });
+  } catch (err) {
+    console.error('Failed to send enquiry email:', err);
+    return bad('Could not send. Please email info@cosmeticsciencelab.com.', 502);
+  }
   return NextResponse.json({ ok: true });
 }
