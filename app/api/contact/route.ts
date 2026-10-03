@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
   });
 
   try {
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Cosmetic Science Lab Website" <${process.env.SMTP_USER}>`,
       to: recipient,
       replyTo: emailField || undefined,
@@ -118,6 +118,10 @@ export async function POST(req: NextRequest) {
       text: textBody,
       attachments,
     });
+    console.log('Enquiry email sent', { subject, accepted: info.accepted, rejected: info.rejected, response: info.response });
+    if (!info.accepted || info.accepted.length === 0) {
+      return NextResponse.json({ error: 'Could not send email.' }, { status: 502 });
+    }
   } catch (err) {
     console.error('Failed to send enquiry email:', err);
     return NextResponse.json({ error: 'Could not send email.' }, { status: 502 });
